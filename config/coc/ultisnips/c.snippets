@@ -1,0 +1,54 @@
+snippet cc "Entrada para programa en C" A
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char **argv)
+{
+	${0:// Inserte codigo aqui}
+
+	return 0;
+}
+endsnippet
+
+snippet for "Bucle 'for' para C" b
+for (int ${2:i}=0; $2<${1:Condicion}; $2++)
+{
+	${0:// Inserte codigo aqui}
+}
+endsnippet
+
+snippet do "Bucle 'do while' para C" b
+do
+{
+	${0:// Inserte codigo aqui}
+}
+while (${1:Condicion});
+endsnippet
+
+snippet while "Bucle 'while' para C" b
+while (${1:Condicion})
+{
+	${0:// Inserte codigo aqui}
+}
+endsnippet
+
+snippet if "Sentencia 'if' para C" b
+if (${1:Condicion})
+{
+	${0:// Inserte codigo aqui}
+}
+endsnippet
+
+snippet else "Sentencia 'if + else' para C" b
+if (${1:Condicion})
+{
+	${2:Codigo}
+}
+else
+{
+	${3:Codigo}
+}
+${0:// Inserte codigo aqui}
+endsnippet
+

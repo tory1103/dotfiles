@@ -1,0 +1,5 @@
+INDEX VERSION 1.132+/home/adriantoral/.config/coc/extensions/coc-java-data/jdt_ws_896294771190be86851b20319b08a453/.metadata/.plugins/org.eclipse.jdt.core
+1485307676.index
+3842426239.index
+66988547.index
+1865797976.index
