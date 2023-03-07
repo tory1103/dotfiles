@@ -3,12 +3,12 @@
 install()
 {
 	# Superuser check
-	[[ $(id -u) -ne 0 ]] && echo "[E] Must run this script as superuser..." && exit 1
+	[[ $(id -u) -ne 0 ]] && command -v sudo > /dev/null && sudo -v
 
 	# Installing neovim package
 	echo "[I] Installing coc for neovim..."
-	apt update
-	apt install neovim curl git -y
+	sudo apt update
+	sudo apt install neovim curl git -y
 
 	# Installing npm and node
 	echo "[I] Installing node version manager (NVM)..."
@@ -38,6 +38,7 @@ setup()
 
 main()
 {
+	set -e
 	install
 	setup
 }

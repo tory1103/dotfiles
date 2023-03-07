@@ -1,10 +1,12 @@
-setup()
+#!/bin/bash
+
+install()
 {
 	# Creating config directory
 	[[ ! -d ~/.config/ ]] && mkdir ~/.config/
 }
 
-install()
+setup()
 {
 	for config in $@
 	do
@@ -30,9 +32,13 @@ Setup list:"
 for setup in $(ls ./setups/) ; do echo "    - " $(echo $setup | sed "s/\.sh//") ; done
 				;;
 
-			all | *)
+			all)
 				for setup in $(ls ./setups/) ; do bash ./setups/$setup ; done
 				exit 0
+				;;
+
+			*)
+				echo "[E] $config not found in path"
 				;;
 		esac
 	done
@@ -40,8 +46,8 @@ for setup in $(ls ./setups/) ; do echo "    - " $(echo $setup | sed "s/\.sh//") 
 
 main()
 {
-	setup
-	install $@
+	install
+	setup $@
 }
 
 main $@

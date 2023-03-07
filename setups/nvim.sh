@@ -3,12 +3,12 @@
 install()
 {
 	# Superuser check
-	[[ $(id -u) -ne 0 ]] && echo "[E] Must run this script as superuser..." && exit 1
+	[[ $(id -u) -ne 0 ]] && command -v sudo > /dev/null && sudo -v
 
 	# Installing neovim package
 	echo "[I] Installing neovim..."
-	apt update
-	apt install neovim curl git -y
+	sudo apt update
+	sudo apt install neovim curl git -y
 
 	# Installing vimplug plugin manager
 	echo "[I] Installing vimplug for neovim..."
@@ -31,6 +31,7 @@ setup()
 
 main()
 {
+	set -e
 	install
 	setup
 }

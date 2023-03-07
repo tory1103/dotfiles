@@ -3,12 +3,12 @@
 install()
 {
 	# Superuser check
-	[[ $(id -u) -ne 0 ]] && echo "[E] Must run this script as superuser..." && exit 1
+	[[ $(id -u) -ne 0 ]] && command -v sudo > /dev/null && sudo -v
 
 	# Installing neovim package
 	echo "[I] Installing zsh..."
-	apt update
-	apt install zsh git curl -y
+	sudo apt update
+	sudo apt install zsh git curl -y
 
 	# Installing oh-my-zsh
 	echo "[I] Installing oh-my-zsh..."
@@ -42,7 +42,7 @@ setup()
 
 	# Changing default shell
 	echo "[S] Changing default shell to zsh..."
-	chsh -s $(which zsh) $USER
+	chsh -s $(which zsh) $(whoami)
 
 	# Finish setup
 	echo "[F] Restart your terminal to finish setup"
@@ -50,6 +50,7 @@ setup()
 
 main()
 {
+	set -e
 	install
 	setup
 }
